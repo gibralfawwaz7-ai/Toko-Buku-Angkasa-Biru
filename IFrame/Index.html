@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pustaka Utama - Toko Buku Online</title>
+    <!-- Mengimpor Font Modern 'Plus Jakarta Sans' -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+ 
+<!-- HEADER PU STAKA UTAMA -->
+
+<!-- HEADER PUSTAKA UTAMA -->
+<header class="site-header">
+    <div class="header-container">
+
+        <div class="brand">
+            <div class="brand-icon"> 𝓖𝓕  </div>
+            <div class="brand-text">
+                <h1>Angkasa Biru Toko</h1>
+                <p>Toko Buku Digital</p>
+            </div>
+        </div>
+
+        <!-- IDENTITAS DAN KEUNGGULAN TOKO -->
+        <div class="header-highlights">
+            <span class="header-eyebrow">EST. 1999 · YOUR READING DESTINATION</span>
+            <div class="header-divider"></div>
+            <div class="highlight-items">
+                <span>Koleksi Pilihan</span>
+                <span class="highlight-dot">𝓖𝓕</span>
+                <span>Berbagai perspektif</span>
+                <span class="highlight-dot">𝓖𝓕</span>
+                <span>Inspirasi Tanpa Batas</span>
+            </div>
+        </div>
+
+        <div class="header-quote">
+            <span class="quote-mark">“</span>
+            Buku adalah jendela dunia,<br>
+            dan setiap halaman adalah perjalanan baru.
+        </div>
+
+    </div>
+</header>
+
+<!-- HEADER SLIDER OTOMATIS -->
+<section class="hero-slider" id="heroSlider">
+    <div class="slides">
+
+        <div class="slide active"
+             style="background-image: url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1800&q=85');">
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+                <span class="slide-label">SELAMAT DATANG DI TOKO ANGKASA BIRU</span>
+                <h2>Temukan Buku Terbaik<br>untuk hari-harimu!</h2>
+                <p>Jelajahi koleksi buku pilihan untuk menemani setiap langkah cerah maupun mendungmu.</p>
+                <a href="BestSeller.html" target="konten" class="slide-button">
+                    Mulai Belanja!
+                </a>
+            </div>
+        </div>
+
+        <div class="slide"
+             style="background-image: url('https://images.unsplash.com/photo-1495446815901-a7297e633e8d?auto=format&fit=crop&w=1800&q=85');">
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+                <span class="slide-label">KOLEKSI PILIHAN</span>
+                <h2>Satu Buku,<br>Sejuta Inspirasi</h2>
+                <p>Temukan cerita, pengetahuan, dan perspektif baru dari setiap bacaan.</p>
+                <a href="BukuNovel.html" target="konten" class="slide-button">
+                    Jelajahi Novel →
+                </a>
+            </div>
+        </div>
+
+        <div class="slide"
+             style="background-image: url('https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1800&q=85');">
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+                <span class="slide-label">TUMBUH BERSAMA BUKU</span>
+                <h2>Mulai Perjalanan<br>Pengembangan Dirimu</h2>
+                <p>Perkaya wawasan dan temukan motivasi untuk terus berkembang.</p>
+                <a href="BukuMotivasi.html" target="konten" class="slide-button">
+                    Temukan Inspirasi →
+                </a>
+            </div>
+        </div>
+
+        <div class="slide"
+             style="background-image: url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1800&q=85');">
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+                <span class="slide-label">RUANG UNTUK BERTUMBUH</span>
+                <h2>Lebih Banyak Membaca,<br>Lebih Luas Memandang Dunia</h2>
+                <p>Temukan bacaan favoritmu dan jadikan membaca bagian dari keseharian.</p>
+                <a href="BestSeller.html" target="konten" class="slide-button">
+                    Lihat Best Seller →
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <button class="slider-arrow prev" type="button"
+            aria-label="Slide sebelumnya">&#10094;</button>
+
+    <button class="slider-arrow next" type="button"
+            aria-label="Slide berikutnya">&#10095;</button>
+
+    <div class="slider-dots">
+        <button class="dot active" type="button" aria-label="Slide 1"></button>
+        <button class="dot" type="button" aria-label="Slide 2"></button>
+        <button class="dot" type="button" aria-label="Slide 3"></button>
+        <button class="dot" type="button" aria-label="Slide 4"></button>
+    </div>
+</section>
+
+
+    <!-- NAVIGASI -->
+<!-- NAVIGASI -->
+    <nav>
+        <div class="nav-container">
+            <a href="Home.html" target="konten" class="nav-link">Home</a>
+            <a href="Profile.html" target="konten" class="nav-link">Profile</a>
+            <a href="CP.html" target="konten" class="nav-link">Contact Person</a>
+
+            <!-- TAMBAHAN MENU BEST SELLER -->
+            <a href="BestSeller.html" target="konten" class="nav-link">Best Seller 🔥</a>
+
+            <!-- DROPDOWN JENIS BUKU -->
+            <div class="dropdown">
+                <a href="#" class="dropbtn">Jenis Buku <span class="arrow">▾</span></a>
+                <div class="dropdown-content">
+                    <a href="BukuNovel.html" target="konten">Buku Novel</a>
+                    <a href="BukuMotivasi.html" target="konten">Buku Motivasi</a>
+<a href="CeritaRakyat.html" target="konten" class="nav-link">
+  Cerita Rakyat
+</a>
+                </div>
+            </div>
+
+            <a href="Referensi.html" target="konten" class="nav-link">Referensi</a> 
+        </div>
+
+<a href="Keranjang.html" target="konten" class="nav-link cart-link">
+    🛒 Keranjang
+    <span id="cartCount" class="cart-count">0</span>
+</a>
+
+    </nav>
+
+    <!-- AREA KONTEN UTAMA -->
+  
+<!-- AREA KONTEN UTAMA -->
+<main class="content-shell">
+    <iframe
+        src="Home.html"
+        name="konten"
+        id="kontenFrame"
+        title="Konten Pustaka Utama">
+    </iframe>
+</main>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Toko Online. All Rights Reserved.</p>
+    </footer>
+
+
+<script>
+    const slider = document.getElementById("heroSlider");
+
+    if (slider) {
+        const slides = slider.querySelectorAll(".slide");
+        const dots = slider.querySelectorAll(".dot");
+        const nextButton = slider.querySelector(".next");
+        const prevButton = slider.querySelector(".prev");
+
+        let currentSlide = 0;
+        let autoSlide;
+
+        function showSlide(index) {
+            currentSlide = (index + slides.length) % slides.length;
+
+            slides.forEach((slide, i) => {
+                slide.classList.toggle("active", i === currentSlide);
+            });
+
+            dots.forEach((dot, i) => {
+                dot.classList.toggle("active", i === currentSlide);
+            });
+        }
+
+        function startAutoSlide() {
+            clearInterval(autoSlide);
+
+            autoSlide = setInterval(() => {
+                showSlide(currentSlide + 1);
+            }, 5000);
+        }
+
+        nextButton.addEventListener("click", () => {
+            showSlide(currentSlide + 1);
+            startAutoSlide();
+        });
+
+        prevButton.addEventListener("click", () => {
+            showSlide(currentSlide - 1);
+            startAutoSlide();
+        });
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener("click", () => {
+                showSlide(index);
+                startAutoSlide();
+            });
+        });
+
+        slider.addEventListener("mouseenter", () => {
+            clearInterval(autoSlide);
+        });
+
+        slider.addEventListener("mouseleave", startAutoSlide);
+
+        startAutoSlide();
+    }
+</script>
+</body>
+</html>
+
+
+</body>
+</html>

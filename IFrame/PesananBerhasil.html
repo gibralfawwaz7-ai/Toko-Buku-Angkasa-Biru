@@ -1,0 +1,248 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pesanan Berhasil | Angkasa Biru Toko</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --black: #111;
+    --gold: #c5a76a;
+    --gold-dark: #92743b;
+    --gold-light: #e4d3a7;
+    --ivory: #f7f6f2;
+    --white: #fff;
+    --muted: #77746c;
+    --border: #e7e2d8;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 25px;
+    background: var(--ivory);
+    color: var(--black);
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.success-card {
+    width: min(600px, 100%);
+    padding: clamp(28px, 6vw, 55px);
+    background: var(--white);
+    border: 1px solid var(--border);
+    text-align: center;
+    position: relative;
+}
+
+.success-card::before {
+    content: "";
+    display: block;
+    width: 65px;
+    height: 3px;
+    margin: -55px auto 35px;
+    background: var(--gold);
+}
+
+.brand {
+    color: var(--gold-dark);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+.checkmark {
+    width: 66px;
+    height: 66px;
+    display: grid;
+    place-items: center;
+    margin: 25px auto;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    color: var(--gold-dark);
+    font-size: 30px;
+}
+
+.eyebrow {
+    color: var(--gold-dark);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+h1 {
+    font: 500 clamp(29px, 5vw, 42px)/1.3 "Playfair Display", Georgia, serif;
+    margin: 12px 0 18px;
+}
+
+.message {
+    color: #555149;
+    font-size: 13px;
+    line-height: 2;
+}
+
+.order-summary {
+    text-align: left;
+    margin-top: 27px;
+    padding: 18px;
+    background: var(--ivory);
+    border: 1px solid var(--border);
+}
+
+.order-summary span {
+    display: block;
+    color: var(--muted);
+    font-size: 10px;
+    margin-bottom: 4px;
+}
+
+.order-summary strong {
+    display: block;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+.notice {
+    margin-top: 22px;
+    padding: 15px;
+    background: #f1eadb;
+    border: 1px solid #dfcfad;
+    color: #5f4d2e;
+    font-size: 11px;
+    line-height: 1.9;
+    text-align: left;
+}
+
+.notice strong {
+    display: block;
+    margin-bottom: 4px;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 26px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 13px 18px;
+    font-size: 10px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: .2s ease;
+}
+
+.btn-primary {
+    background: var(--black);
+    border: 1px solid var(--black);
+    color: var(--gold-light);
+}
+
+.btn-primary:hover {
+    background: var(--gold-dark);
+    border-color: var(--gold-dark);
+}
+
+.btn-secondary {
+    border: 1px solid var(--border);
+    color: var(--black);
+    background: white;
+}
+
+.btn-secondary:hover {
+    border-color: var(--gold);
+}
+
+.footer {
+    color: var(--muted);
+    font-size: 9px;
+    margin-top: 28px;
+    line-height: 1.9;
+}
+</style>
+</head>
+
+<body>
+<main class="success-card">
+    <div class="brand">ANGKASA BIRU TOKO</div>
+
+    <div class="checkmark" aria-hidden="true">✓</div>
+
+    <span class="eyebrow">TERIMA KASIH</span>
+
+    <h1>Pesanan Anda sedang kami siapkan.</h1>
+
+    <p class="message">
+        Terima kasih atas pembeliannya! Semoga buku pilihanmu
+        membawa cerita, wawasan, dan inspirasi baru.
+    </p>
+
+    <section class="order-summary">
+        <span>Buku yang dipilih</span>
+        <strong id="orderTitle">Buku pilihan</strong>
+
+        <span style="margin-top:13px;">Total simulasi</span>
+        <strong id="orderPrice">Rp0</strong>
+
+        <span style="margin-top:13px;">Metode pembayaran</span>
+        <strong id="orderMethod">Simulasi</strong>
+    </section>
+
+    <div class="notice">
+        <strong>ⓘ Catatan penting tentang proyek ini</strong>
+        Website ini merupakan proyek pembelajaran website
+        SMA Negeri 3 Bandung. Toko Angkasa Biru dan proses pemesanan
+        ini hanya simulasi, bukan layanan jual beli sungguhan.
+        Tidak ada pembayaran, pengiriman, atau transaksi nyata yang terjadi.
+    </div>
+
+    <div class="actions">
+        <a href="Home.html" target="konten" class="btn btn-primary">
+            KEMBALI KE BERANDA ↗
+        </a>
+        <a href="BestSeller.html" target="konten" class="btn btn-secondary">
+            JELAJAHI BUKU
+        </a>
+    </div>
+
+    <footer class="footer">
+        ANGKASA BIRU TOKO · PROYEK WEBSITE SEKOLAH<br>
+        SMA NEGERI 3 BANDUNG · 2026
+    </footer>
+</main>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+
+document.getElementById("orderTitle").textContent =
+    params.get("title") || "Buku pilihan";
+
+const price = Number(params.get("price"));
+document.getElementById("orderPrice").textContent =
+    Number.isSafeInteger(price) && price > 0
+        ? new Intl.NumberFormat("id-ID", {
+            style: "currency",
+            currency: "IDR",
+            maximumFractionDigits: 0
+          }).format(price)
+        : "Tidak tersedia";
+
+document.getElementById("orderMethod").textContent =
+    params.get("method") || "Simulasi";
+</script>
+</body>
+</html>

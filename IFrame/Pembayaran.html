@@ -1,0 +1,570 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout | Angkasa Biru Toko</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --black: #111111;
+    --black-soft: #1c1c1c;
+    --gold: #c5a76a;
+    --gold-dark: #92743b;
+    --gold-light: #e4d3a7;
+    --ivory: #f7f6f2;
+    --white: #fff;
+    --text: #292721;
+    --muted: #77746c;
+    --border: #e7e2d8;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    background: var(--ivory);
+    color: var(--text);
+    line-height: 1.7;
+}
+
+button, input {
+    font: inherit;
+}
+
+.page {
+    max-width: 1050px;
+    margin: auto;
+    padding: 34px 22px 55px;
+}
+
+.topline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--border);
+}
+
+.brand {
+    color: var(--black);
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+.brand span {
+    color: var(--gold-dark);
+}
+
+.secure-label {
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.secure-label b {
+    color: var(--gold-dark);
+}
+
+.heading {
+    padding: 36px 0 27px;
+}
+
+.eyebrow {
+    color: var(--gold-dark);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.heading h1 {
+    color: var(--black);
+    font: 500 clamp(30px, 5vw, 43px)/1.25 "Playfair Display", Georgia, serif;
+    margin-top: 9px;
+}
+
+.heading p {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 9px;
+}
+
+.demo-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background: #f1eadb;
+    border: 1px solid #dfcfad;
+    padding: 15px 17px;
+    margin-bottom: 26px;
+    font-size: 11px;
+    color: #5f4d2e;
+}
+
+.demo-notice strong {
+    display: block;
+    margin-bottom: 3px;
+    color: #4a3920;
+}
+
+.checkout-grid {
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.panel {
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 25px;
+}
+
+.panel h2 {
+    font: 500 23px/1.35 "Playfair Display", Georgia, serif;
+    color: var(--black);
+    margin-bottom: 5px;
+}
+
+.panel-subtitle {
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 23px;
+}
+
+.field {
+    margin-bottom: 18px;
+}
+
+.field label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 7px;
+}
+
+.field input {
+    width: 100%;
+    min-height: 44px;
+    padding: 11px 13px;
+    background: #fdfcf9;
+    color: var(--text);
+    border: 1px solid var(--border);
+    outline: none;
+    border-radius: 0;
+}
+
+.field input:focus {
+    border-color: var(--gold-dark);
+    box-shadow: 0 0 0 2px rgba(197,167,106,.13);
+}
+
+.field input::placeholder {
+    color: #aaa59a;
+}
+
+.payment-options {
+    display: grid;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.payment-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid var(--border);
+    padding: 13px;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.payment-option:has(input:checked) {
+    border-color: var(--gold-dark);
+    background: #fbf8f0;
+}
+
+.payment-option input {
+    accent-color: var(--gold-dark);
+}
+
+.method-icon {
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    background: #f0eee8;
+    font-size: 18px;
+}
+
+.method-text strong {
+    display: block;
+    font-size: 11px;
+}
+
+.method-text span {
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.summary-product {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 17px 0 22px;
+    border-bottom: 1px solid var(--border);
+}
+
+.book-symbol {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 62px;
+    height: 78px;
+    background: var(--black);
+    color: var(--gold-light);
+    font-size: 25px;
+}
+
+.product-info {
+    min-width: 0;
+}
+
+.product-info small {
+    color: var(--gold-dark);
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.product-info h3 {
+    color: var(--black);
+    font: 500 19px/1.4 "Playfair Display", Georgia, serif;
+    overflow-wrap: anywhere;
+    margin: 4px 0;
+}
+
+.product-info p {
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.price-rows {
+    display: grid;
+    gap: 12px;
+    padding: 20px 0;
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 11px;
+}
+
+.price-row span:first-child {
+    color: var(--muted);
+}
+
+.price-row strong {
+    color: var(--text);
+    text-align: right;
+}
+
+.total-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    border-top: 1px solid var(--border);
+    padding-top: 19px;
+}
+
+.total-row span {
+    color: var(--black);
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.total-row strong {
+    color: var(--gold-dark);
+    font-size: 23px;
+}
+
+.disclaimer {
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.8;
+    margin-top: 18px;
+}
+
+.pay-button {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    margin-top: 22px;
+    background: var(--black);
+    color: var(--gold-light);
+    border: 1px solid var(--black);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: .25s ease;
+}
+
+.pay-button:hover {
+    background: var(--gold-dark);
+    border-color: var(--gold-dark);
+    color: white;
+}
+
+.back-link {
+    display: inline-block;
+    color: var(--gold-dark);
+    font-size: 11px;
+    margin-top: 17px;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.footer-note {
+    text-align: center;
+    color: var(--muted);
+    font-size: 10px;
+    margin-top: 36px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+}
+
+.footer-note strong {
+    color: var(--black);
+}
+
+@media (max-width: 720px) {
+    .checkout-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page {
+        padding: 22px 15px 35px;
+    }
+
+    .panel {
+        padding: 20px;
+    }
+
+    .secure-label {
+        text-align: right;
+    }
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+    <header class="topline">
+        <div class="brand">ANGKASA <span>BIRU</span></div>
+        <div class="secure-label">✦ <b>CHECKOUT DEMO</b></div>
+    </header>
+
+    <section class="heading">
+        <span class="eyebrow">YOUR NEXT CHAPTER</span>
+        <h1>Selesaikan Pesananmu.</h1>
+        <p>Satu langkah lagi menuju cerita yang ingin kamu jelajahi.</p>
+    </section>
+
+    <div class="demo-notice">
+        <div>ⓘ</div>
+        <div>
+            <strong>Website simulasi untuk proyek sekolah</strong>
+            Ini merupakan proyek pembelajaran website SMA Negeri 3 Bandung.
+            Toko dan pembayaran ini tidak nyata. Jangan masukkan data pribadi
+            sensitif, nomor rekening, PIN, kata sandi, atau OTP.
+        </div>
+    </div>
+
+    <form id="checkoutForm">
+        <div class="checkout-grid">
+
+            <section class="panel">
+                <h2>Informasi Pesanan</h2>
+                <p class="panel-subtitle">
+                    Isi data simulasi seperlunya untuk melanjutkan demo.
+                </p>
+
+                <div class="field">
+                    <label for="nama">Nama pembeli (opsional)</label>
+                    <input id="nama" name="nama" type="text"
+                           placeholder="Contoh: Andi" maxlength="60">
+                </div>
+
+                <div class="field">
+                    <label for="email">Email (opsional)</label>
+                    <input id="email" name="email" type="email"
+                           placeholder="nama@email.com" maxlength="100">
+                </div>
+
+                <div class="field">
+                    <label>Metode pembayaran simulasi</label>
+                    <div class="payment-options">
+
+                        <label class="payment-option">
+                            <input type="radio" name="metode"
+                                   value="Transfer bank (simulasi)" checked>
+                            <span class="method-icon">▤</span>
+                            <span class="method-text">
+                                <strong>Transfer Bank</strong>
+                                <span>Simulasi — tidak ada transfer nyata</span>
+                            </span>
+                        </label>
+
+                        <label class="payment-option">
+                            <input type="radio" name="metode"
+                                   value="E-wallet (simulasi)">
+                            <span class="method-icon">▣</span>
+                            <span class="method-text">
+                                <strong>E-Wallet</strong>
+                                <span>Simulasi — tidak terhubung ke dompet digital</span>
+                            </span>
+                        </label>
+
+                        <label class="payment-option">
+                            <input type="radio" name="metode"
+                                   value="Bayar di tempat (simulasi)">
+                            <span class="method-icon">♧</span>
+                            <span class="method-text">
+                                <strong>Bayar di Tempat</strong>
+                                <span>Contoh pilihan untuk demonstrasi</span>
+                            </span>
+                        </label>
+
+                    </div>
+                </div>
+
+                <p class="disclaimer">
+                    Tidak ada pemrosesan pembayaran, pengiriman buku,
+                    atau pengumpulan data ke layanan eksternal.
+                </p>
+            </section>
+
+            <aside class="panel">
+                <h2>Ringkasan Pesanan</h2>
+                <p class="panel-subtitle">Periksa buku pilihanmu.</p>
+
+                <div class="summary-product">
+                    <div class="book-symbol">𝓖𝓕</div>
+                    <div class="product-info">
+                        <small>Buku pilihan</small>
+                        <h3 id="productName">Memuat pesanan...</h3>
+                        <p>Angkasa Biru Toko</p>
+                    </div>
+                </div>
+
+                <div class="price-rows">
+                    <div class="price-row">
+                        <span>Harga buku</span>
+                        <strong id="bookPrice">Rp0</strong>
+                    </div>
+                    <div class="price-row">
+                        <span>Biaya layanan</span>
+                        <strong>Rp0</strong>
+                    </div>
+                    <div class="price-row">
+                        <span>Pengiriman</span>
+                        <strong>Rp0</strong>
+                    </div>
+                </div>
+
+                <div class="total-row">
+                    <span>Total simulasi</span>
+                    <strong id="totalPrice">Rp0</strong>
+                </div>
+
+                <button class="pay-button" type="submit">
+                    KONFIRMASI PESANAN ↗
+                </button>
+
+                <a href="Home.html" target="konten" class="back-link">
+                    ← Kembali menjelajahi buku
+                </a>
+            </aside>
+
+        </div>
+    </form>
+
+    <footer class="footer-note">
+        <strong>ANGKASA BIRU TOKO</strong><br>
+        Proyek website pembelajaran · SMA Negeri 3 Bandung<br>
+        Seluruh transaksi pada halaman ini hanya simulasi dan tidak nyata.
+    </footer>
+
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+
+const title = params.get("title") || "Buku pilihan";
+const parsedPrice = Number(params.get("price"));
+const price = Number.isSafeInteger(parsedPrice) &&
+              parsedPrice > 0 &&
+              parsedPrice <= 100000000
+              ? parsedPrice : 0;
+
+function formatRupiah(value) {
+    return new Intl.NumberFormat("id-ID", {
+        style: "currency",
+        currency: "IDR",
+        maximumFractionDigits: 0
+    }).format(value);
+}
+
+document.getElementById("productName").textContent = title;
+document.getElementById("bookPrice").textContent = formatRupiah(price);
+document.getElementById("totalPrice").textContent = formatRupiah(price);
+
+document.getElementById("checkoutForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    if (price <= 0) {
+        alert("Harga buku tidak valid. Silakan kembali dan pilih buku dari katalog.");
+        return;
+    }
+
+    const order = {
+        title: title,
+        price: price,
+        method: document.querySelector('input[name="metode"]:checked').value
+    };
+
+    // Hanya meneruskan informasi demo melalui URL.
+    // Tidak mengirim data ke server atau memproses uang.
+    const next = new URLSearchParams({
+        title: order.title,
+        price: String(order.price),
+        method: order.method
+    });
+
+    window.location.href = "PesananBerhasil.html?" + next.toString();
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,249 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keranjang Belanja - Pustaka Utama</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', Arial, sans-serif;
+            background: #f5f7fa;
+            padding: 24px;
+            color: #253047;
+        }
+
+        .cart-container {
+            max-width: 850px;
+            margin: auto;
+            background: white;
+            padding: 24px;
+            border-radius: 16px;
+            box-shadow: 0 5px 24px #0000000d;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 18px 0;
+            border-bottom: 1px solid #e9edf2;
+        }
+
+        .cart-item h3 {
+            margin: 0 0 8px;
+            font-size: 16px;
+        }
+
+        .cart-item p {
+            margin: 4px 0;
+            color: #667085;
+        }
+
+        .remove-btn {
+            background: #fff0ef;
+            color: #c0392b;
+            border: none;
+            border-radius: 8px;
+            padding: 9px 12px;
+            cursor: pointer;
+        }
+
+        .cart-total {
+            margin-top: 24px;
+            text-align: right;
+        }
+
+        .cart-total h2 {
+            color: #087f5b;
+        }
+
+        .cart-actions {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .cart-actions a,
+        .cart-actions button {
+            display: inline-block;
+            padding: 12px 16px;
+            border-radius: 9px;
+            border: none;
+            text-decoration: none;
+            font: inherit;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .continue-btn {
+            background: #eef2f6;
+            color: #253047;
+        }
+
+        .checkout-btn {
+            background: #087f5b;
+            color: white;
+        }
+
+        .empty-cart {
+            padding: 40px 10px;
+            text-align: center;
+            color: #667085;
+        }
+
+        @media (max-width: 500px) {
+            body { padding: 10px; }
+            .cart-container { padding: 16px; }
+            .cart-item { align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+    <main class="cart-container">
+        <h1>🛒 Keranjang Belanja</h1>
+        <p>Periksa kembali buku pilihanmu sebelum melanjutkan.</p>
+
+        <div id="cartItems"></div>
+
+        <section id="cartSummary" hidden>
+            <div class="cart-total">
+                <p id="itemCount"></p>
+                <h2 id="totalPrice"></h2>
+            </div>
+
+            <div class="cart-actions">
+                <a href="BukuNovel.html" target="konten"
+                   class="continue-btn">
+                    ← Lanjut Belanja
+                </a>
+
+                <button class="checkout-btn" onclick="checkout()">
+                    Lanjut ke Pembayaran →
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const CART_KEY = "pustakaUtamaCart";
+
+        function getCart() {
+            try {
+                return JSON.parse(localStorage.getItem(CART_KEY)) || [];
+            } catch (error) {
+                return [];
+            }
+        }
+
+        function rupiah(value) {
+            return new Intl.NumberFormat("id-ID", {
+                style: "currency",
+                currency: "IDR",
+                maximumFractionDigits: 0
+            }).format(value);
+        }
+
+        function renderCart() {
+            const cart = getCart();
+            const container = document.getElementById("cartItems");
+            const summary = document.getElementById("cartSummary");
+
+            container.replaceChildren();
+
+            if (!cart.length) {
+                const empty = document.createElement("div");
+                empty.className = "empty-cart";
+                empty.innerHTML =
+                    "<h2>Keranjangmu masih kosong 📚</h2>" +
+                    "<p>Yuk, pilih buku yang ingin kamu baca!</p>" +
+                    '<a href="BestSeller.html" target="konten">Lihat Best Seller</a>';
+
+                container.appendChild(empty);
+                summary.hidden = true;
+                return;
+            }
+
+            let total = 0;
+            let quantity = 0;
+
+            cart.forEach((item, index) => {
+                const subtotal = item.price * item.qty;
+                total += subtotal;
+                quantity += item.qty;
+
+                const row = document.createElement("div");
+                row.className = "cart-item";
+
+                const info = document.createElement("div");
+                const title = document.createElement("h3");
+                const price = document.createElement("p");
+                const qty = document.createElement("p");
+
+                title.textContent = item.title;
+                price.textContent = rupiah(item.price) + " / buku";
+                qty.textContent = "Jumlah: " + item.qty +
+                    " · Subtotal: " + rupiah(subtotal);
+
+                info.append(title, price, qty);
+
+                const remove = document.createElement("button");
+                remove.className = "remove-btn";
+                remove.textContent = "Hapus";
+                remove.type = "button";
+                remove.addEventListener("click", () => removeItem(index));
+
+                row.append(info, remove);
+                container.appendChild(row);
+            });
+
+            document.getElementById("itemCount").textContent =
+                "Total " + quantity + " buku";
+            document.getElementById("totalPrice").textContent =
+                "Total: " + rupiah(total);
+
+            summary.hidden = false;
+        }
+
+        function removeItem(index) {
+            const cart = getCart();
+            cart.splice(index, 1);
+            localStorage.setItem(CART_KEY, JSON.stringify(cart));
+            renderCart();
+        }
+
+        function checkout() {
+            const cart = getCart();
+
+            if (!cart.length) {
+                alert("Keranjang masih kosong.");
+                return;
+            }
+
+            const total = cart.reduce(
+                (sum, item) => sum + item.price * item.qty, 0
+            );
+
+            const titles = cart.map(item =>
+                item.title + " (" + item.qty + " buku)"
+            ).join(", ");
+
+            const params = new URLSearchParams({
+                title: titles,
+                price: String(total)
+            });
+
+            // Memuat halaman pembayaran pada iframe utama
+            window.parent.location.href =
+                "Pembayaran.html?" + params.toString();
+        }
+
+        window.addEventListener("storage", renderCart);
+        renderCart();
+    </script>
+</body>
+</html>

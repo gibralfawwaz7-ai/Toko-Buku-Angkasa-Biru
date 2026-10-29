@@ -1,0 +1,41 @@
+<html>
+
+<head>
+<title>::Latihan 9::</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+ <header>
+  <h1>LATIHAN 9</h1>
+  <p>Belajar Pemrograman Web - HTML Iframe<p>
+ </header>
+
+ <nav>
+  <a href="Home.html" target="konten">Home</a>
+  <a href="Profile.html" target="konten">Profile</a>
+  <a href="Products.html" target="products">Kontak</a>
+  <a href="Service.html" target="Service">Kontak</a>
+  <a href="Distributor.html" target="Distributor">Kontak</a>
+  <a href="Kontak.html" target="konten">Kontak</a>
+ </nav>
+
+ <main>
+
+  <h2>Area Konten</h2>
+  
+  <iframe
+   src="Home.html"
+   name="konten"
+   title="Area Konten Website">
+  </iframe>
+ </main>
+
+<footer>
+ <p> 2026 Toko Online All Right Reserved </p>
+</footer>
+
+</body>
+
+</html>

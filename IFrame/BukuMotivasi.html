@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buku Motivasi</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #ffffff;
+      padding: 20px;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 22px;
+      margin-bottom: 25px;
+      color: #1e3a5f;
+    }
+
+    /* Container Grid */
+    .container-buku {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      justify-content: center;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* Styling Kartu */
+    .card-buku {
+      background-color: #ffffff;
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card-buku:hover {
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Area Gambar */
+    .img-container {
+      width: 100%;
+      height: 260px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      margin-bottom: 15px;
+      border-radius: 6px;
+    }
+
+    .img-container img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    /* Tombol/Label Harga (Format Link ke Pembayaran) */
+    .price-btn {
+      display: inline-block;
+      width: 100%;
+      background-color: #1e3a5f;
+      color: #ffffff;
+      font-weight: bold;
+      padding: 10px 0;
+      border-radius: 6px;
+      font-size: 15px;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    /* Efek Membesar (Scale) saat Hover */
+    .price-btn:hover {
+      transform: scale(1.08);
+      background-color: #2b5288;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Buku-buku Motivasi ternama dengan harga murah siap menyambut Anda!</h1>
+
+  <div class="container-buku">
+
+    <!-- Card 1 -->
+    <div class="card-buku">
+      <div class="img-container">
+        <a href="Home.html"><img src="GAMBAR/Motivasi_BA.jpg" alt="Motivasi BA"></a>
+      </div>
+      <a href="Pembayaran.html?title=Motivasi%20BA&price=Rp%2065.000" class="price-btn">Rp 65.000</a>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card-buku">
+      <div class="img-container">
+        <img src="GAMBAR/RBTDKA.jpg" alt="RBTDKA">
+      </div>
+      <a href="Pembayaran.html?title=RBTDKA&price=Rp%2079.000" class="price-btn">Rp 79.000</a>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card-buku">
+      <div class="img-container">
+        <img src="GAMBAR/Motivasi_BKAJM.jpg" alt="Motivasi BKAJM">
+      </div>
+      <a href="Pembayaran.html?title=Motivasi%20BKAJM&price=Rp%2060.000" class="price-btn">Rp 60.000</a>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="card-buku">
+      <div class="img-container">
+        <img src="GAMBAR/Motivasi_SAW.jpg" alt="Motivasi SAW">
+      </div>
+      <a href="Pembayaran.html?title=Motivasi%20SAW&price=Rp%2065.000" class="price-btn">Rp 65.000</a>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="card-buku">
+      <div class="img-container">
+        <img src="GAMBAR/Motivasi_AKPdM.jpg" alt="Motivasi AKPdM">
+      </div>
+      <a href="Pembayaran.html?title=Motivasi%20AKPdM&price=Rp%2045.000" class="price-btn">Rp 45.000</a>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="card-buku">
+      <div class="img-container">
+        <img src="GAMBAR/Motivasi_RM.jpg" alt="Motivasi RM">
+      </div>
+      <a href="Pembayaran.html?title=Motivasi%20RM&price=Rp%2060.000" class="price-btn">Rp 60.000</a>
+    </div>
+
+    <!-- Card 7 -->
+    <div class="card-buku">
+      <div class="img-container">
+        <img src="GAMBAR/Motivasi_BdTH.jpg" alt="Motivasi BdTH">
+      </div>
+      <a href="Pembayaran.html?title=Motivasi%20BdTH&price=Rp%2065.000" class="price-btn">Rp 65.000</a>
+    </div>
+
+    <!-- Card 8 -->
+    <div class="card-buku">
+      <div class="img-container">
+        <img src="GAMBAR/Motivasi_SKIB.jpg" alt="Motivasi SKIB">
+      </div>
+      <a href="Pembayaran.html?title=Motivasi%20SKIB&price=Rp%2045.000" class="price-btn">Rp 45.000</a>
+    </div>
+
+    <!-- Card 9 -->
+    <div class="card-buku">
+      <div class="img-container">
+        <img src="GAMBAR/Motivasi_IBTM.jpg" alt="Motivasi IBTM">
+      </div>
+      <a href="Pembayaran.html?title=Motivasi%20IBTM&price=Rp%2060.000" class="price-btn">Rp 60.000</a>
+    </div>
+
+    <!-- Card 10 -->
+    <div class="card-buku">
+      <div class="img-container">
+        <img src="GAMBAR/Motivasi_BA.jpg" alt="Motivasi BA">
+      </div>
+      <a href="Pembayaran.html?title=Motivasi%20BA&price=Rp%2065.000" class="price-btn">Rp 65.000</a>
+    </div>
+
+    <!-- Card 11 -->
+    <div class="card-buku">
+      <div class="img-container">
+        <img src="GAMBAR/Motivasi_AKPdM.jpg" alt="Motivasi AKPdM">
+      </div>
+      <a href="Pembayaran.html?title=Motivasi%20AKPdM&price=Rp%2045.000" class="price-btn">Rp 45.000</a>
+    </div>
+
+    <!-- Card 12 -->
+    <div class="card-buku">
+      <div class="img-container">
+        <img src="GAMBAR/Motivasi_BA.jpg" alt="Motivasi BA">
+      </div>
+      <a href="Pembayaran.html?title=Motivasi%20BA&price=Rp%2060.000" class="price-btn">Rp 60.000</a>
+    </div>
+
+  </div>
+
+</body>
+</html>

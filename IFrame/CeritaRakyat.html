@@ -1,0 +1,430 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cerita Rakyat | Pustaka Utama</title>
+
+  <style>
+    :root {
+      --gold: #c5a76a;
+      --gold-light: #e4d3a7;
+      --gold-dark: #92743b;
+      --black: #111111;
+      --black-soft: #1c1c1c;
+      --white: #ffffff;
+      --cream: #f7f6f2;
+      --gray: #77746c;
+      --border: #e7e2d8;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--black);
+      padding: 28px 20px 40px;
+    }
+
+    /* HEADER */
+    .hero {
+      max-width: 1100px;
+      margin: 0 auto 35px;
+      padding: 36px 22px;
+      text-align: center;
+      background: linear-gradient(135deg, #111, #30291d);
+      border: 1px solid var(--gold);
+      border-radius: 14px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .eyebrow {
+      color: var(--gold-light);
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 13px;
+    }
+
+    h1 {
+      color: var(--white);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(25px, 4vw, 36px);
+      font-weight: normal;
+    }
+
+    .gold-line {
+      width: 65px;
+      height: 2px;
+      background: var(--gold);
+      margin: 18px auto;
+    }
+
+    .hero p {
+      color: #e3ded4;
+      font-size: 13px;
+      line-height: 1.8;
+      max-width: 650px;
+      margin: auto;
+    }
+
+    /* GRID BUKU */
+    .container-buku {
+      display: grid;
+      grid-template-columns: repeat(
+        auto-fit,
+        minmax(min(100%, 225px), 1fr)
+      );
+      gap: 24px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    /* KARTU */
+    .card-buku {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 5px 18px rgba(17, 17, 17, 0.05);
+      transition: transform 0.3s ease,
+                  box-shadow 0.3s ease,
+                  border-color 0.3s ease;
+    }
+
+    .card-buku:hover {
+      transform: translateY(-6px);
+      border-color: var(--gold);
+      box-shadow: 0 12px 28px rgba(17, 17, 17, 0.12);
+    }
+
+    .img-container {
+      width: 100%;
+      height: 265px;
+      background: #efede7;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 17px;
+    }
+
+    .img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.4s ease;
+    }
+
+    .card-buku:hover .img-container img {
+      transform: scale(1.04);
+    }
+
+    .category {
+      color: var(--gold-dark);
+      font-size: 10px;
+      font-weight: bold;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .title-buku {
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--black);
+      font-size: 19px;
+      line-height: 1.4;
+      margin-bottom: 9px;
+    }
+
+    .description {
+      color: var(--gray);
+      font-size: 12px;
+      line-height: 1.7;
+      margin-bottom: 15px;
+      flex-grow: 1;
+    }
+
+    .price {
+      color: var(--gold-dark);
+      font-size: 17px;
+      font-weight: 750;
+      margin-bottom: 14px;
+    }
+
+    .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      margin-top: auto;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      border-radius: 6px;
+      padding: 11px 9px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.25s ease;
+    }
+
+    .buy-btn {
+      background: var(--black);
+      color: var(--white);
+      border: 1px solid var(--black);
+    }
+
+    .buy-btn:hover {
+      background: var(--gold-dark);
+      border-color: var(--gold-dark);
+    }
+
+    .add-cart-btn {
+      background: var(--white);
+      color: var(--gold-dark);
+      border: 1px solid var(--gold);
+    }
+
+    .add-cart-btn:hover {
+      background: var(--gold);
+      color: var(--black);
+    }
+
+    .footer-note {
+      max-width: 1100px;
+      margin: 35px auto 0;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--gray);
+      font-size: 11px;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 16px 12px 28px;
+      }
+
+      .hero {
+        padding: 28px 16px;
+      }
+
+      .container-buku {
+        gap: 15px;
+      }
+
+      .img-container {
+        height: 230px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="hero">
+    <div class="eyebrow">Pustaka Utama · Koleksi Nusantara</div>
+    <h1>Warisan Cerita Rakyat</h1>
+    <div class="gold-line"></div>
+    <p>
+      Menjelajahi legenda, tradisi, dan kearifan lokal
+      dari berbagai penjuru Indonesia. Temukan kisah
+      yang diwariskan lintas generasi dalam satu koleksi.
+    </p>
+  </header>
+
+  <main class="container-buku">
+
+    <!-- 1. Sangkuriang -->
+    <article class="card-buku">
+      <div class="img-container">
+        <img src="GAMBAR/CR_Sangkuriang.png"
+             alt="Sampul buku Sangkuriang">
+      </div>
+      <div class="category">Legenda Jawa Barat</div>
+      <h2 class="title-buku">Sangkuriang</h2>
+      <p class="description">
+        Legenda Sunda tentang Sangkuriang dan Dayang Sumbi
+        yang berkaitan dengan asal-usul Gunung Tangkuban Parahu.
+      </p>
+      <div class="price">Rp 50.000</div>
+      <div class="actions">
+        <a class="btn buy-btn"
+           href="Pembayaran.html?title=Sangkuriang&amp;price=50000">
+          Beli Sekarang
+        </a>
+        <button class="btn add-cart-btn" type="button"
+          onclick="tambahKeranjang('Sangkuriang', 50000)">
+          + Tambah ke Keranjang
+        </button>
+      </div>
+    </article>
+
+    <!-- 2. Cerita Rakyat Banten dan Jakarta -->
+    <article class="card-buku">
+      <div class="img-container">
+        <img src="GAMBAR/CR_Cerita Rayat Banten dan Jakarta.png"
+             alt="Sampul Cerita Rakyat Banten dan Jakarta">
+      </div>
+      <div class="category">Koleksi Daerah</div>
+      <h2 class="title-buku">Cerita Rakyat Banten dan Jakarta</h2>
+      <p class="description">
+        Kumpulan kisah tradisional dari Banten dan Jakarta
+        yang mengenalkan kekayaan budaya serta nilai
+        kehidupan masyarakat setempat.
+      </p>
+      <div class="price">Rp 65.000</div>
+      <div class="actions">
+        <a class="btn buy-btn"
+           href="Pembayaran.html?title=Cerita%20Rakyat%20Banten%20dan%20Jakarta&amp;price=65000">
+          Beli Sekarang
+        </a>
+        <button class="btn add-cart-btn" type="button"
+          onclick="tambahKeranjang('Cerita Rakyat Banten dan Jakarta', 65000)">
+          + Tambah ke Keranjang
+        </button>
+      </div>
+    </article>
+
+    <!-- 3. Kumpulan Cerita Rakyat -->
+    <article class="card-buku">
+      <div class="img-container">
+        <img src="GAMBAR/CR_Kumpulan Cerita Rakyat.png"
+             alt="Sampul Kumpulan Cerita Rakyat">
+      </div>
+      <div class="category">Antologi Nusantara</div>
+      <h2 class="title-buku">Kumpulan Cerita Rakyat</h2>
+      <p class="description">
+        Beragam kisah rakyat Indonesia yang sarat pesan
+        moral, imajinasi, dan kebijaksanaan lokal.
+      </p>
+      <div class="price">Rp 55.000</div>
+      <div class="actions">
+        <a class="btn buy-btn"
+           href="Pembayaran.html?title=Kumpulan%20Cerita%20Rakyat&amp;price=55000">
+          Beli Sekarang
+        </a>
+        <button class="btn add-cart-btn" type="button"
+          onclick="tambahKeranjang('Kumpulan Cerita Rakyat', 55000)">
+          + Tambah ke Keranjang
+        </button>
+      </div>
+    </article>
+
+    <!-- 4. Cerita Rakyat Nusantara 34 Provinsi -->
+    <article class="card-buku">
+      <div class="img-container">
+        <img src="GAMBAR/CR_Cerita Rakyat Nusantara 34 Provinsi.png"
+             alt="Sampul Cerita Rakyat Nusantara 34 Provinsi">
+      </div>
+      <div class="category">Ensiklopedia Budaya</div>
+      <h2 class="title-buku">Cerita Rakyat Nusantara 34 Provinsi</h2>
+      <p class="description">
+        Jelajahi berbagai cerita dari seluruh provinsi
+        Indonesia melalui kisah yang mencerminkan
+        keberagaman budaya Nusantara.
+      </p>
+      <div class="price">Rp 85.000</div>
+      <div class="actions">
+        <a class="btn buy-btn"
+           href="Pembayaran.html?title=Cerita%20Rakyat%20Nusantara%2034%20Provinsi&amp;price=85000">
+          Beli Sekarang
+        </a>
+        <button class="btn add-cart-btn" type="button"
+          onclick="tambahKeranjang('Cerita Rakyat Nusantara 34 Provinsi', 85000)">
+          + Tambah ke Keranjang
+        </button>
+      </div>
+    </article>
+
+    <!-- 5. Cerita Rakyat Nusantara -->
+    <article class="card-buku">
+      <div class="img-container">
+        <img src="GAMBAR/CR_Cerita Rakyat Nusantara.png"
+             alt="Sampul Cerita Rakyat Nusantara">
+      </div>
+      <div class="category">Koleksi Nusantara</div>
+      <h2 class="title-buku">Cerita Rakyat Nusantara</h2>
+      <p class="description">
+        Himpunan kisah legendaris Indonesia yang
+        memperkenalkan kekayaan tradisi, nilai luhur,
+        dan identitas budaya bangsa.
+      </p>
+      <div class="price">Rp 60.000</div>
+      <div class="actions">
+        <a class="btn buy-btn"
+           href="Pembayaran.html?title=Cerita%20Rakyat%20Nusantara&amp;price=60000">
+          Beli Sekarang
+        </a>
+        <button class="btn add-cart-btn" type="button"
+          onclick="tambahKeranjang('Cerita Rakyat Nusantara', 60000)">
+          + Tambah ke Keranjang
+        </button>
+      </div>
+    </article>
+
+  </main>
+
+  <footer class="footer-note">
+    PUSTAKA UTAMA · MERAWAT CERITA, MENJAGA WARISAN NUSANTARA
+  </footer>
+
+
+<script>
+  function tambahKeranjang(judul, harga) {
+    const key = "pustakaUtamaCart";
+
+    // Ambil fungsi keranjang dari halaman utama jika tersedia.
+    if (
+      window.parent !== window &&
+      typeof window.parent.addToCart === "function"
+    ) {
+      window.parent.addToCart(judul, harga);
+
+      // Setelah ditambahkan, langsung buka halaman keranjang
+      window.location.href = "Keranjang.html";
+      return;
+    }
+
+    // Cadangan jika halaman dibuka langsung.
+    let cart = [];
+
+    try {
+      cart = JSON.parse(localStorage.getItem(key)) || [];
+    } catch (error) {
+      cart = [];
+    }
+
+    const item = cart.find(buku => buku.title === judul);
+
+    if (item) {
+      item.qty = (Number(item.qty) || 0) + 1;
+    } else {
+      cart.push({
+        title: judul,
+        price: harga,
+        qty: 1
+      });
+    }
+
+    localStorage.setItem(key, JSON.stringify(cart));
+
+    // Langsung berpindah ke halaman keranjang.
+    window.location.href = "Keranjang.html";
+  }
+</script>
+
+</body>
+</html>
